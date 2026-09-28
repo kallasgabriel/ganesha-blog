@@ -1,0 +1,23 @@
+:root{--bg:#FDFDFC;--cream:#FBFAF8;--lavender:#F5F3FB;--purple:#6C3BEE;--ink:#17151F;--muted:#6B6676;--line:#E9E6EF}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.75 Figtree,system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 20px}
+a{color:var(--purple)}a:focus-visible{outline:3px solid var(--purple);outline-offset:3px}
+.wrap{max-width:720px;margin:0 auto}
+header.site{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:28px;border-bottom:1px solid var(--line);margin-bottom:48px}
+.brand{font-weight:750;font-size:24px;letter-spacing:-1px;color:var(--ink);text-decoration:none}.brand span{color:var(--purple)}
+.cta{display:inline-block;font-size:14px;font-weight:600;text-decoration:none;background:var(--purple);color:#fff;padding:9px 16px;border-radius:9px}
+.meta{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(30px,6vw,44px);line-height:1.12;letter-spacing:-1.2px;font-weight:650;margin:10px 0 18px;text-wrap:balance}
+.lead{font-size:19px;color:var(--muted);margin:0 0 36px}
+article h2{font-size:26px;line-height:1.25;letter-spacing:-.5px;font-weight:650;margin:44px 0 12px;text-wrap:balance}
+article h3{font-size:20px;margin:30px 0 8px}
+article li{margin:6px 0}
+article code{background:var(--lavender);padding:2px 6px;border-radius:5px;font-size:.9em}
+article pre{background:var(--lavender);padding:16px;border-radius:10px;overflow-x:auto}article pre code{padding:0;background:none}
+article blockquote{margin:24px 0;padding:4px 20px;border-left:3px solid var(--purple);background:var(--cream)}
+article table{border-collapse:collapse;display:block;overflow-x:auto}article td,article th{border:1px solid var(--line);padding:8px 12px}
+.box{margin:48px 0;padding:28px;background:var(--lavender);border-radius:16px}.box p{margin:0 0 14px}
+ul.posts{list-style:none;padding:0;margin:0}ul.posts li{padding:22px 0;border-bottom:1px solid var(--line)}
+ul.posts a{font-size:21px;font-weight:600;text-decoration:none;color:var(--ink)}ul.posts a:hover{color:var(--purple)}
+ul.posts p{margin:6px 0 0;color:var(--muted);font-size:16px}
+footer{margin:64px 0 40px;font-size:14px;color:var(--muted)}
+@media(max-width:600px){body{font-size:16px}header.site{margin-bottom:32px}}

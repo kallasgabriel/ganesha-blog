@@ -1,0 +1,7 @@
+# Ganesha blog
+
+> Articles from Ganesha. Course: https://ganesha-devops.vercel.app/courses/course-7e0d08ef76670b2fffbf2458
+
+## Articles
+
+- [How to Use AI Responsibly at Work: A 6-Step Checklist](https://kallasgabriel.github.io/ganesha-blog/how-to-use-ai-responsibly-at-work/): A practical guide to using AI responsibly at work: a 6-step checklist to verify accuracy, protect private data and know when a human must review.
