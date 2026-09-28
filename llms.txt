@@ -1,6 +1,6 @@
 # Ganesha blog
 
-> Articles from Ganesha. Course: https://ganesha-devops.vercel.app/courses/course-7e0d08ef76670b2fffbf2458
+> Articles from Ganesha. Course: https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f
 
 ## Articles
 
