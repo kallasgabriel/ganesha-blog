@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Test and Fix AI-Generated Code Without Coding | Ganesha</title><meta name="description" content="A non-programmer&#x27;s loop for testing what AI builds, reading error messages and writing a fix request that works, with a copy-paste prompt and example.">
+<link rel="canonical" href="https://kallasgabriel.github.io/ganesha-blog/test-fix-ai-code-without-coding/">
+<meta property="og:type" content="article"><meta property="og:title" content="How to Test and Fix AI-Generated Code Without Coding | Ganesha">
+<meta property="og:description" content="A non-programmer&#x27;s loop for testing what AI builds, reading error messages and writing a fix request that works, with a copy-paste prompt and example."><meta property="og:url" content="https://kallasgabriel.github.io/ganesha-blog/test-fix-ai-code-without-coding/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;650;750&display=swap">
+<link rel="stylesheet" href="https://kallasgabriel.github.io/ganesha-blog/style.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "How to Test and Fix AI-Generated Code Without Coding", "description": "A non-programmer's loop for testing what AI builds, reading error messages and writing a fix request that works, with a copy-paste prompt and example.", "datePublished": "2026-10-05", "inLanguage": "en", "author": {"@type": "Organization", "name": "Ganesha"}, "mainEntityOfPage": "https://kallasgabriel.github.io/ganesha-blog/test-fix-ai-code-without-coding/", "keywords": "test ai generated code, fix ai generated code, debug ai code beginner, build with ai no coding, ai coding for non-programmers, first project with ai"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do non-programmers test and fix what AI generates?", "acceptedAnswer": {"@type": "Answer", "text": "By testing behaviour instead of code. Write one sentence describing what should happen, do exactly that, and compare the result with your sentence. Run four checks on every change: the normal case, the empty case, ugly input, and a page refresh. When something fails, copy the full error text and send the AI your expected result, the actual result and the error, asking for the smallest possible fix."}}, {"@type": "Question", "name": "What do I do when the code an AI generates doesn't work and I can't program?", "acceptedAnswer": {"@type": "Answer", "text": "Don't say \"it's broken, fix it\". Isolate one broken behaviour, copy the error message in full (right-click the page, Inspect, Console tab), and send three things: what you asked for, what actually happened, and the raw error. Ask the AI to explain the cause before changing anything, and to change only the one file needed. Save a copy of the project first so you can roll back."}}, {"@type": "Question", "name": "How do I know if AI-generated code is actually working or just looks like it?", "acceptedAnswer": {"@type": "Answer", "text": "Looking right and working are different. The most common beginner failure is data that vanishes on refresh, so always reload the page and come back. Also test the empty case and odd input: blank fields, very long text, emoji, strange dates. If a feature survives those four checks, it works for your purposes."}}, {"@type": "Question", "name": "What is a good first project to build with AI as a complete beginner?", "acceptedAnswer": {"@type": "Answer", "text": "Pick something with a result you can see and check in a few minutes: a one-page personal site, a to-do app that saves your tasks locally, or an automation that turns a spreadsheet into a short report. Each one teaches a different skill — layout, saving data, and moving data between tools."}}, {"@type": "Question", "name": "Do I need to learn to code to fix AI-generated code?", "acceptedAnswer": {"@type": "Answer", "text": "No, but you do need to get specific. The skills that matter are describing expected behaviour precisely, reading the first line of an error message, copying it accurately, and limiting how much the AI is allowed to change at once. You'll pick up vocabulary along the way, which makes your requests sharper."}}]}</script>
+</head><body><div class="wrap">
+<header class="site"><a class="brand" href="https://kallasgabriel.github.io/ganesha-blog/">ganesha<span>.</span> blog</a>
+<a class="cta" href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=header">See the course</a></header>
+<main><article>
+<span class="meta">2026-10-05</span><h1>How to Test and Fix AI-Generated Code Without Coding</h1><p class="lead">A non-programmer&#x27;s loop for testing what AI builds, reading error messages and writing a fix request that works, with a copy-paste prompt and example.</p>
+<p>When AI builds something for you and it doesn't work, you don't need to read the code to fix it — you need a repeatable loop: describe what should happen, run it, compare the result with what you asked for, then hand the AI the exact error text and the exact difference. Testing is just checking reality against your own request, and that's a skill you already have. The code-reading part is the AI's job; the deciding-whether-it's-right part is yours.</p>
+<p>This is the non-programmer version of debugging: what to click, what to look at, and literally what to type back into the chat.</p>
+<h2>Why "almost right" is the normal result</h2>
+<p>If your AI project half-works, nothing has gone wrong with you. In the 2025 Stack Overflow Developer Survey, <a href="https://survey.stackoverflow.co/2025/ai">66% of professional developers said their top frustration with AI tools is "solutions that are almost right, but not quite"</a>, and 45.2% said debugging AI-generated code is more time-consuming. The same survey found that more developers actively distrust the accuracy of AI output (46%) than trust it (33%).</p>
+<p>So the people who <em>can</em> read code hit the same wall. The difference is they have a routine for it. Here's yours.</p>
+<h2>The four-step loop: ask, build, test, correct</h2>
+<p>Do these in order, every time, on every small change.</p>
+<ol>
+<li><strong>Ask</strong> — write down, in one sentence, what the thing should do. "When I type a task and press Enter, it appears in the list and is still there after I refresh the page."</li>
+<li><strong>Build</strong> — let the AI produce it. One feature at a time, not the whole app.</li>
+<li><strong>Test</strong> — do exactly what your sentence says. Type the task. Press Enter. Refresh.</li>
+<li><strong>Correct</strong> — report what actually happened, word for word, and ask for one fix.</li>
+</ol>
+<p>The trap is skipping step 1. If you never wrote down what "working" means, you can't tell the AI what's broken, and you'll go in circles asking it to "fix the bug".</p>
+<h2>How to test when you can't read the code</h2>
+<p>You test the behaviour, not the code. Four checks cover most beginner projects:</p>
+<ul>
+<li><strong>The happy path.</strong> Do the normal thing. Add a task, submit the form, upload the file. Does it do what you asked?</li>
+<li><strong>The empty case.</strong> Do nothing and press the button. Leave the field blank. Most AI-built screens break here, silently.</li>
+<li><strong>The ugly input.</strong> Paste 500 characters. Type an emoji. Enter a date like 31/02. Put a comma in a number.</li>
+<li><strong>The refresh.</strong> Reload the page, close the tab, come back. Data that disappears is the single most common failure in a first app.</li>
+</ul>
+<p>Write these four in a notes file and run them after each change. That list is your test suite. It doesn't need to be fancier than that.</p>
+<h2>How to read an error message without knowing how to code</h2>
+<p>Errors look intimidating because they're long, but you only need three things from them:</p>
+<ul>
+<li><strong>The first line.</strong> That's usually the actual problem, in near-English. Everything underneath is the trail of where it happened.</li>
+<li><strong>The file name and line number.</strong> Something like <code>app.js:42</code>. You don't need to understand it — the AI does.</li>
+<li><strong>Anything in quotes.</strong> <code>Cannot read properties of undefined (reading 'tasks')</code> is telling you something called <code>tasks</code> isn't there.</li>
+</ul>
+<p>Where to find errors: in a web page, right-click → Inspect → Console tab. In a builder tool, it's the panel that turns red. Copy the whole thing. Don't retype it, don't summarise it, don't send a screenshot if you can send text.</p>
+<h2>What to type back into the AI: a template you can copy</h2>
+<p>The bad version, which gets you a random rewrite:</p>
+<blockquote>
+<p>it's broken, fix it</p>
+</blockquote>
+<p>The version that gets a fix:</p>
+<blockquote>
+<p>Here's what I asked for: when I type a task and press Enter, it should appear in the list and still be there after I refresh the page.</p>
+<p>Here's what actually happens: the task appears in the list, but after I refresh the page the list is empty.</p>
+<p>Here's the error from the browser console, copied in full:
+<code>Uncaught TypeError: Cannot read properties of null (reading 'getItem') at app.js:42</code></p>
+<p>Before changing anything: tell me in plain language what you think is causing this, and which single file and function you'd change. Don't rewrite the whole app — change the smallest thing that fixes this one behaviour. Then tell me exactly what I should click to confirm it's fixed.</p>
+</blockquote>
+<p>Four things make that prompt work: expected vs. actual, the raw error, a request for the diagnosis <em>before</em> the fix, and a hard limit on how much it's allowed to change. That last one matters most — unconstrained AI fixes tend to rebuild working parts of your project and break them.</p>
+<h2>A worked example: the to-do app that forgets everything</h2>
+<p><strong>Before.</strong> You ask for a task app. It looks perfect. You add five tasks, refresh, and they're gone. You tell the AI "my tasks disappear", it apologises and rewrites the whole file, and now the Add button doesn't work either.</p>
+<p><strong>After.</strong> You run the four checks and find only the refresh check fails — the happy path is fine. You open the console, copy the red text, and send the template above. The AI replies that nothing is being saved to the browser's local storage, points at one function, and changes about six lines. You refresh: the tasks are still there. You re-run all four checks to confirm nothing else broke, and only then move to the next feature.</p>
+<p>That's the whole job: narrow the failure to one behaviour, give the AI the evidence, constrain the fix, re-test everything.</p>
+<h2>Keep a "known good" copy before every fix</h2>
+<p>Before you let the AI change something that currently works, save a copy of the project folder or use the tool's version history. It takes ten seconds and it's the difference between "that fix made things worse, let me go back" and starting over.</p>
+<p>If you'd rather follow a guided path than invent the habit alone, the <a href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=test-fix-ai-code-without-coding">course on turning ideas into real projects with AI</a> is built around exactly this cycle — ask, build, test, correct — across a web page, a task app with local data storage and a backup, and an automation that turns a table into a report. The current beta has 4 lessons and 24 steps, in 11 languages, with no programming experience assumed.</p>
+<h2>When to stop and ask a human</h2>
+<p>Two honest limits. If the same error survives three rounds of the loop, stop looping — the AI is guessing. Start a fresh chat, describe the goal from scratch, and rebuild that piece instead of patching it. And anything involving other people's data, payments or passwords deserves a real developer's eyes before it goes live. Testing behaviour catches broken; it doesn't catch unsafe.</p>
+<h2>Frequently asked questions</h2>
+<p><strong>How do non-programmers test and fix what AI generates?</strong></p>
+<p>By testing behaviour instead of code. Write one sentence describing what should happen, do exactly that, and compare the result with your sentence. Run four checks on every change: the normal case, the empty case, ugly input, and a page refresh. When something fails, copy the full error text and send the AI your expected result, the actual result and the error, asking for the smallest possible fix.</p>
+<p><strong>What do I do when the code an AI generates doesn't work and I can't program?</strong></p>
+<p>Don't say "it's broken, fix it". Isolate one broken behaviour, copy the error message in full (right-click the page, Inspect, Console tab), and send three things: what you asked for, what actually happened, and the raw error. Ask the AI to explain the cause before changing anything, and to change only the one file needed. Save a copy of the project first so you can roll back.</p>
+<p><strong>How do I know if AI-generated code is actually working or just looks like it?</strong></p>
+<p>Looking right and working are different. The most common beginner failure is data that vanishes on refresh, so always reload the page and come back. Also test the empty case and odd input: blank fields, very long text, emoji, strange dates. If a feature survives those four checks, it works for your purposes.</p>
+<p><strong>What is a good first project to build with AI as a complete beginner?</strong></p>
+<p>Pick something with a result you can see and check in a few minutes: a one-page personal site, a to-do app that saves your tasks locally, or an automation that turns a spreadsheet into a short report. Each one teaches a different skill — layout, saving data, and moving data between tools.</p>
+<p><strong>Do I need to learn to code to fix AI-generated code?</strong></p>
+<p>No, but you do need to get specific. The skills that matter are describing expected behaviour precisely, reading the first line of an error message, copying it accurately, and limiting how much the AI is allowed to change at once. You'll pick up vocabulary along the way, which makes your requests sharper.</p>
+</article>
+<div class="box"><p><strong>Ganesha</strong></p>
+<a class="cta" href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=test-fix-ai-code-without-coding">See the course</a></div>
+<p><a href="https://kallasgabriel.github.io/ganesha-blog/">← All articles</a></p></main>
+<footer>© 2026 Ganesha.</footer>
+</div></body></html>
