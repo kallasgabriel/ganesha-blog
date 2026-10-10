@@ -4,5 +4,6 @@
 
 ## Articles
 
+- [What to Build First with AI: 3 Beginner Projects](https://kallasgabriel.github.io/ganesha-blog/first-ai-project-no-coding/): A good first AI project is small, finishable in an afternoon and easy to check. Three projects to build without coding, plus a step-by-step and prompts.
 - [How to Test and Fix AI-Generated Code Without Coding](https://kallasgabriel.github.io/ganesha-blog/test-fix-ai-code-without-coding/): A non-programmer's loop for testing what AI builds, reading error messages and writing a fix request that works, with a copy-paste prompt and example.
 - [How to Use AI Responsibly at Work: A 6-Step Checklist](https://kallasgabriel.github.io/ganesha-blog/how-to-use-ai-responsibly-at-work/): A practical guide to using AI responsibly at work: a 6-step checklist to verify accuracy, protect private data and know when a human must review.
