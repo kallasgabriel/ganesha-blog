@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Write an AI Prompt That Builds What You Want | Ganesha</title><meta name="description" content="Learn how to turn a vague idea into a clear AI request, with a fill-in-the-blank template, a before-and-after example and a checklist to fix bad results.">
+<link rel="canonical" href="https://kallasgabriel.github.io/ganesha-blog/write-ai-prompt-build-what-you-want/">
+<meta property="og:type" content="article"><meta property="og:title" content="How to Write an AI Prompt That Builds What You Want | Ganesha">
+<meta property="og:description" content="Learn how to turn a vague idea into a clear AI request, with a fill-in-the-blank template, a before-and-after example and a checklist to fix bad results."><meta property="og:url" content="https://kallasgabriel.github.io/ganesha-blog/write-ai-prompt-build-what-you-want/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;650;750&display=swap">
+<link rel="stylesheet" href="https://kallasgabriel.github.io/ganesha-blog/style.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "How to Write an AI Prompt That Builds What You Want", "description": "Learn how to turn a vague idea into a clear AI request, with a fill-in-the-blank template, a before-and-after example and a checklist to fix bad results.", "datePublished": "2026-10-11", "inLanguage": "en", "author": {"@type": "Organization", "name": "Ganesha"}, "mainEntityOfPage": "https://kallasgabriel.github.io/ganesha-blog/write-ai-prompt-build-what-you-want/", "keywords": "ai prompt to build an app, how to write ai prompts, build app with ai no coding, ai prompt template, prompt for ai website, learn ai for beginners"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need to learn prompt engineering to build with AI?", "acceptedAnswer": {"@type": "Answer", "text": "No. You need to describe a goal, the actions a user can take, the data involved, your constraints and how you'll check the result. That's project specification, not prompt engineering, and it's the same skill whether you write code or not."}}, {"@type": "Question", "name": "How long should a building prompt be?", "acceptedAnswer": {"@type": "Answer", "text": "Long enough to be checkable, usually five to ten lines. Extra adjectives don't help; extra specifics do. If you can't name three tests for the result, the prompt is still too short."}}, {"@type": "Question", "name": "What do I do when the AI's result doesn't work?", "acceptedAnswer": {"@type": "Answer", "text": "Name the failing check, paste the exact error message or describe exactly what you saw, and ask for one fix at a time with the full corrected file. Avoid asking for several changes in a single message."}}, {"@type": "Question", "name": "Should I use a different prompt for websites, apps and automations?", "acceptedAnswer": {"@type": "Answer", "text": "The structure stays the same; the details change. Pages need sections and one action, apps need storage and backup, automations need exact input and output formats plus error handling."}}, {"@type": "Question", "name": "Can I do this on my phone?", "acceptedAnswer": {"@type": "Answer", "text": "Use a computer. You'll be moving between the AI tool and the files you create, saving and opening them, which is impractical on a phone."}}]}</script>
+</head><body><div class="wrap">
+<header class="site"><a class="brand" href="https://kallasgabriel.github.io/ganesha-blog/">ganesha<span>.</span> blog</a>
+<a class="cta" href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=header">See the course</a></header>
+<main><article>
+<span class="meta">2026-10-11</span><h1>How to Write an AI Prompt That Builds What You Want</h1><p class="lead">Learn how to turn a vague idea into a clear AI request, with a fill-in-the-blank template, a before-and-after example and a checklist to fix bad results.</p>
+<p>A good building prompt is not a clever sentence — it is a short, checkable description of what you want. Write down the goal, who uses it, what the person can do on the screen, what data is stored, and how you will know it worked. If you can check the result against your own words, the AI has enough to build something useful; if you can't, the prompt is too vague.</p>
+<p>Most beginners don't fail at AI because they lack technical vocabulary. They fail because they ask for "a website for my bakery" and then have no way to tell whether the answer is right or wrong. This guide fixes that part.</p>
+<h2>Why does AI build the wrong thing?</h2>
+<p>When a request is open-ended, the model fills the gaps with assumptions. You asked for a task app; it invented user accounts, a database, and a design you never wanted. Nothing went "wrong" technically — you simply never said what the boundaries were.</p>
+<p>The three gaps that cause most of the damage:</p>
+<ul>
+<li><strong>No scope.</strong> You didn't say what is <em>not</em> included, so the AI adds features you now have to understand and maintain.</li>
+<li><strong>No acceptance test.</strong> You didn't say what the finished thing should do, so you can't judge the result and end up accepting whatever appears.</li>
+<li><strong>No context about you.</strong> You didn't say you have no coding experience or which tool you're working in, so the answer assumes a setup you don't have.</li>
+</ul>
+<p>Fix those three and the quality of the output changes immediately — with the same AI model.</p>
+<h2>The five parts of a request AI can actually build</h2>
+<p>Think of it as a mini brief, not a magic phrase. Five lines are enough:</p>
+<ol>
+<li><strong>Goal</strong> — what the thing is for, in one sentence.</li>
+<li><strong>User and actions</strong> — who opens it and what they can do, listed as verbs.</li>
+<li><strong>Data</strong> — what information is stored, and where it lives.</li>
+<li><strong>Constraints</strong> — tools, file types, what to leave out, your experience level.</li>
+<li><strong>Done means</strong> — the checks you'll run to accept the result.</li>
+</ol>
+<p>The last line is the one almost everyone skips, and it is the one that saves the most time. "Done means" turns a conversation into a deliverable.</p>
+<h2>Copy this template</h2>
+<p>Fill in the brackets and paste it into your AI tool:</p>
+<pre><code>I want to build [what: a web page / a small app / an automation].
+
+Goal: [what it is for, in one sentence].
+Who uses it: [person] who needs to [main job].
+They can: [action 1], [action 2], [action 3].
+Data: [what is stored] saved [where: in the browser, in a file, in a spreadsheet].
+Constraints: I have no programming experience. Build it as [single HTML file /
+simple script]. Do not add [accounts, payments, databases] for now.
+Done means: [check 1], [check 2], [check 3].
+
+Explain what you are doing in plain language before the code, then give me
+the full file and tell me exactly where to save it and how to open it.
+</code></pre>
+<p>That last paragraph matters as much as the spec. Asking for a plain-language explanation plus file-placement instructions is what makes the output usable by someone who isn't a developer.</p>
+<h2>Before and after: the same idea, two prompts</h2>
+<p><strong>Before:</strong> "Make me a task app."</p>
+<p>What you get: a generic to-do list, possibly with a framework you've never installed, instructions that stop halfway, and no idea whether it saves anything.</p>
+<p><strong>After:</strong></p>
+<pre><code>I want to build a small task app.
+
+Goal: keep track of my freelance to-dos for the week.
+Who uses it: me, on my laptop.
+They can: add a task with a title and a due date, mark it done, delete it,
+and export all tasks to a file.
+Data: the task list saved in the browser so it survives a page refresh.
+Constraints: I have no programming experience. Build it as one HTML file with
+no installation. Do not add logins or a server.
+Done means: I can add three tasks, refresh the page and still see them;
+marking one done visibly changes it; the export produces a file I can reopen.
+
+Explain what you are doing in plain language before the code, then give me the
+full file and tell me where to save it and how to open it.
+</code></pre>
+<p>Same idea, five minutes of extra thinking, and now you have something you can test. If the refresh loses your tasks, you don't argue with the AI — you paste the failing check back: <em>"Done means item 1 fails: after refresh the list is empty. Fix only that and tell me what you changed."</em></p>
+<p>That loop — ask, build, test, correct — is the actual skill. It's also the backbone of the <a href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=write-ai-prompt-build-what-you-want">practical AI course for beginners</a>, which walks through the same cycle on a web page, a task app with local storage and backup, and an automation that turns a table into a report.</p>
+<h2>How to write the "done means" line</h2>
+<p>If you can't test it, it isn't a requirement — it's a wish. Good checks are small, visible and binary:</p>
+<ul>
+<li>"I can add a task and it appears in the list."</li>
+<li>"After closing and reopening the page, my data is still there."</li>
+<li>"If the spreadsheet has an empty row, the report says so instead of crashing."</li>
+<li>"The page is readable on a phone-width window."</li>
+</ul>
+<p>Bad checks sound like "it should look professional" or "it should be fast". Those produce opinions, not corrections. If appearance matters, make it concrete: "white background, one accent colour, no more than two fonts."</p>
+<h2>Prompting for the three common beginner projects</h2>
+<p><strong>A web page.</strong> Say what sections exist, in order, and what the single action on the page is (a button, a form, a link). Add: "one HTML file, no build tools."</p>
+<p><strong>An automation.</strong> Describe the input exactly — "a CSV with columns date, client, hours, rate" — and the output exactly — "a text summary with total hours and total value per client". Then add an error check: "if a row has no rate, skip it and list it at the end." Automations fail on messy inputs far more often than on logic.</p>
+<p><strong>A small app.</strong> Name the storage explicitly ("saved in the browser") and ask for a backup path ("a button that exports everything to a file, and one that restores from it"). Beginners lose work because nobody asked for the export.</p>
+<h2>Five habits that keep the conversation on track</h2>
+<ul>
+<li><strong>One change at a time.</strong> Bundled requests produce bundled bugs you can't isolate.</li>
+<li><strong>Always ask for the whole file</strong> after a fix, not a fragment to splice in. Splicing is where non-coders break working projects.</li>
+<li><strong>Say your level out loud.</strong> "I have no programming experience" changes the explanation you get.</li>
+<li><strong>Paste the real error text</strong>, not a description of it. The exact message is the most useful thing you own.</li>
+<li><strong>Re-read your own spec before blaming the AI.</strong> Half the time the gap is in line 3 of your prompt.</li>
+</ul>
+<h2>Where to practise</h2>
+<p>Pick something small and boring that you actually want: a page listing your services, a tracker for one week of work, a script that turns one spreadsheet into one summary. Write the five-line brief, run it, and test against your own "done means". The second project is always faster than the first, because by then you're writing specs instead of wishes.</p>
+<p>If you'd rather follow a guided path, the course covers preparing your environment, writing checkable requests, reviewing what the AI produces and asking for corrections. It's text-based and practical, you work in your own AI tool, and you'll need a computer and access to a tool such as Codex or Claude. <a href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=write-ai-prompt-build-what-you-want">See what the course covers</a>.</p>
+<h2>Frequently asked questions</h2>
+<p><strong>Do I need to learn prompt engineering to build with AI?</strong>
+No. You need to describe a goal, the actions a user can take, the data involved, your constraints and how you'll check the result. That's project specification, not prompt engineering, and it's the same skill whether you write code or not.</p>
+<p><strong>How long should a building prompt be?</strong>
+Long enough to be checkable, usually five to ten lines. Extra adjectives don't help; extra specifics do. If you can't name three tests for the result, the prompt is still too short.</p>
+<p><strong>What do I do when the AI's result doesn't work?</strong>
+Name the failing check, paste the exact error message or describe exactly what you saw, and ask for one fix at a time with the full corrected file. Avoid asking for several changes in a single message.</p>
+<p><strong>Should I use a different prompt for websites, apps and automations?</strong>
+The structure stays the same; the details change. Pages need sections and one action, apps need storage and backup, automations need exact input and output formats plus error handling.</p>
+<p><strong>Can I do this on my phone?</strong>
+Use a computer. You'll be moving between the AI tool and the files you create, saving and opening them, which is impractical on a phone.</p>
+</article>
+<div class="box"><p><strong>Ganesha</strong></p>
+<a class="cta" href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=write-ai-prompt-build-what-you-want">See the course</a></div>
+<p><a href="https://kallasgabriel.github.io/ganesha-blog/">← All articles</a></p></main>
+<footer>© 2026 Ganesha.</footer>
+</div></body></html>
