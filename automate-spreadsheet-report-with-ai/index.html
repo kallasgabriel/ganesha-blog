@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automate a Spreadsheet Report with AI (No Coding) | Ganesha</title><meta name="description" content="Turn a messy spreadsheet into a weekly report with AI, without knowing how to code. A 6-step walkthrough, a copy-paste prompt and how to check the result.">
+<link rel="canonical" href="https://kallasgabriel.github.io/ganesha-blog/automate-spreadsheet-report-with-ai/">
+<meta property="og:type" content="article"><meta property="og:title" content="Automate a Spreadsheet Report with AI (No Coding) | Ganesha">
+<meta property="og:description" content="Turn a messy spreadsheet into a weekly report with AI, without knowing how to code. A 6-step walkthrough, a copy-paste prompt and how to check the result."><meta property="og:url" content="https://kallasgabriel.github.io/ganesha-blog/automate-spreadsheet-report-with-ai/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;650;750&display=swap">
+<link rel="stylesheet" href="https://kallasgabriel.github.io/ganesha-blog/style.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Automate a Spreadsheet Report with AI (No Coding)", "description": "Turn a messy spreadsheet into a weekly report with AI, without knowing how to code. A 6-step walkthrough, a copy-paste prompt and how to check the result.", "datePublished": "2026-10-14", "inLanguage": "en", "author": {"@type": "Organization", "name": "Ganesha"}, "mainEntityOfPage": "https://kallasgabriel.github.io/ganesha-blog/automate-spreadsheet-report-with-ai/", "keywords": "automate spreadsheet with ai, spreadsheet to report ai, ai automation no coding, turn spreadsheet into report, ai for beginners, no code automation"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need to know how to code to automate a spreadsheet with AI?", "acceptedAnswer": {"@type": "Answer", "text": "No. The AI writes the script; your job is to describe the report precisely and verify the numbers it produces. You will copy and paste code without writing it — but you do need to check the output against the original data, because the AI can produce a script that runs perfectly and still answers the wrong question."}}, {"@type": "Question", "name": "Which AI tool is best for turning a spreadsheet into a report?", "acceptedAnswer": {"@type": "Answer", "text": "For a first attempt, a general assistant like ChatGPT, Claude or Gemini is enough — you can upload the file and get both the report and a reusable script. If the data must stay inside the file, use Copilot in Excel or Gemini in Google Sheets. For scheduled delivery to email or Slack, add a connector such as Zapier, Make or n8n."}}, {"@type": "Question", "name": "Is it safe to upload my company spreadsheet to an AI tool?", "acceptedAnswer": {"@type": "Answer", "text": "That depends on your company's rules, not on the tool. Check your internal policy first. A common safe path is to anonymise the data — replace names and client identifiers with codes — or to work with a small sample, get the script, then run the script on the real file locally so the full dataset never leaves your systems."}}, {"@type": "Question", "name": "How do I know if the AI got the numbers wrong?", "acceptedAnswer": {"@type": "Answer", "text": "Recompute one figure by hand and compare, check the row count the AI says it used, and run the report on an empty or unusual week. Most errors are not arithmetic mistakes — they are filter mistakes, like including test rows or shifting the date window by one day."}}, {"@type": "Question", "name": "How long does it take to set up the first one?", "acceptedAnswer": {"@type": "Answer", "text": "Plan one focused session for the first report: defining what you want, writing the prompt, checking the results and fixing the filter logic. After that, the same report runs in a click, and your second automation is much faster because you reuse the pattern."}}]}</script>
+</head><body><div class="wrap">
+<header class="site"><a class="brand" href="https://kallasgabriel.github.io/ganesha-blog/">ganesha<span>.</span> blog</a>
+<a class="cta" href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=header">See the course</a></header>
+<main><article>
+<span class="meta">2026-10-14</span><h1>Automate a Spreadsheet Report with AI (No Coding)</h1><p class="lead">Turn a messy spreadsheet into a weekly report with AI, without knowing how to code. A 6-step walkthrough, a copy-paste prompt and how to check the result.</p>
+<p>You can automate a spreadsheet report with AI without writing a single line of code: upload or paste the sheet into an AI assistant, describe the report you want in plain language, ask the AI to write the summary and the script that produces it, then check the numbers against the original file. The hard part is not the technology — it is describing the report precisely enough that the AI can build the same thing every week instead of a different thing every time.</p>
+<p>This guide walks through the whole cycle with one real example: a sales spreadsheet that becomes a weekly report you can send to your team.</p>
+<h2>What "automating a report" actually means</h2>
+<p>There are three different levels, and people mix them up:</p>
+<ul>
+<li><strong>One-off analysis.</strong> You hand a file to an AI assistant and ask questions. Fast, but you redo it every week.</li>
+<li><strong>A repeatable recipe.</strong> The AI writes a script or a formula set that lives next to your spreadsheet. You run it in one click each week.</li>
+<li><strong>A fully scheduled automation.</strong> The recipe runs on its own — every Monday at 9am — and delivers the report to email or chat.</li>
+</ul>
+<p>Start at level two. Level one teaches you nothing reusable, and level three fails badly if the logic underneath was never checked. Get a recipe you trust, then schedule it.</p>
+<h2>Which tools do this, and when to use each</h2>
+<p>You do not need all of them. Pick one path:</p>
+<ul>
+<li><strong>A general AI assistant (ChatGPT, Claude, Gemini).</strong> Best starting point. Upload the file, get analysis and a script. No setup, no account to connect.</li>
+<li><strong>AI inside the spreadsheet (Copilot in Excel, Gemini in Google Sheets).</strong> Good when the data must stay in the file and you want formulas rather than scripts.</li>
+<li><strong>Google Apps Script or Office Scripts.</strong> The free, built-in way to make the recipe repeatable. You never write it yourself — the AI does, you paste it in.</li>
+<li><strong>Connector tools (Zapier, Make, n8n).</strong> For level three: schedule the run, send the output to email, Slack or a doc.</li>
+</ul>
+<p>For the example below, the cheapest reliable combination is an AI assistant plus Google Apps Script.</p>
+<h2>Step 1: Describe the report before you touch the AI</h2>
+<p>Write down, in your own words, what a good report looks like. Answer four questions:</p>
+<ul>
+<li><strong>Who reads it?</strong> A manager who wants three numbers, or an analyst who wants the breakdown?</li>
+<li><strong>What decision does it support?</strong> "Which product to push next week" produces a different report than "did we hit target".</li>
+<li><strong>What is the time window?</strong> Last 7 days, month to date, same week last year?</li>
+<li><strong>What does "good" look like?</strong> Half a page? A table plus three bullets?</li>
+</ul>
+<p>This takes five minutes and it is the step most people skip. An AI will happily build a report nobody asked for.</p>
+<h2>Step 2: Clean up the input, lightly</h2>
+<p>AI handles messy data better than a formula does, but it cannot read your mind about ambiguity. Before uploading:</p>
+<ul>
+<li>One header row, one row per record. No merged cells in the data area.</li>
+<li>Consistent date format in the date column.</li>
+<li>No totals rows mixed in with the data — they get counted twice.</li>
+<li>Name the columns like a human would: <code>order_date</code>, <code>product</code>, <code>region</code>, <code>revenue</code>.</li>
+</ul>
+<p>If your file has five tabs, send only the one that matters.</p>
+<h2>Step 3: The prompt</h2>
+<p>Here is a prompt you can copy and adapt. Replace the bracketed parts:</p>
+<pre><code>I have a Google Sheet named &quot;Sales 2026&quot; with one row per order.
+Columns: order_date (DD/MM/YYYY), product, region, salesperson, revenue (BRL), status.
+
+I want a weekly report for my sales manager. It should cover the last
+7 full days (Monday to Sunday) and contain:
+
+1. Total revenue for the week, and the % change vs the previous week.
+2. Top 5 products by revenue, with their share of the week's total.
+3. Revenue by region, as a small table.
+4. Any order with status &quot;cancelled&quot; — list them with date, product, revenue.
+5. Three bullet points in plain English describing what changed vs last week.
+
+Rules:
+- Ignore rows where status is &quot;test&quot;.
+- If a week has no data, say so instead of showing zero.
+- Output in Markdown, under one page.
+
+First, show me the report using the data I attached.
+Then write a Google Apps Script that produces the same report every time
+I run it, and explain in plain language where to paste it.
+</code></pre>
+<p>Three things make this prompt work: the column names are spelled out, the output is defined item by item, and the edge cases ("test" rows, empty weeks) are handled before they become silent errors.</p>
+<h2>Step 4: Check the output before you trust it</h2>
+<p>This is the step that separates a useful automation from an embarrassing one. Do not read the report and nod — verify it:</p>
+<ul>
+<li><strong>Pick one number and recompute it by hand.</strong> Total revenue for the week: filter the sheet yourself and compare. If it does not match, the AI's filter logic is wrong, not your arithmetic.</li>
+<li><strong>Check the row count.</strong> Ask the AI how many rows it used. Compare with what you expect after removing test rows.</li>
+<li><strong>Test an empty case.</strong> Run it on a week with no orders. It should say "no data", not crash and not show R$ 0 as if that were real.</li>
+<li><strong>Check the edges of the date window.</strong> An order on Sunday at 23:50 — is it in or out?</li>
+</ul>
+<p>When something is off, do not rewrite the prompt from scratch. Say what you observed: "The weekly total shows 48,200 but filtering the sheet myself gives 51,900. I think cancelled orders are being excluded — they should be included in revenue and also listed separately." Specific feedback gets a specific fix.</p>
+<h2>Step 5: Make it repeatable</h2>
+<p>Once the numbers check out, paste the script where it will live. In Google Sheets: Extensions → Apps Script, paste, save, run once and grant permission. Ask the AI for a menu button so you — or a colleague — can run it without opening the code:</p>
+<pre><code>Add an onOpen function that creates a custom menu called &quot;Reports&quot;
+with one item, &quot;Generate weekly report&quot;, that runs the script and
+writes the output to a new tab named with the week's date.
+</code></pre>
+<p>Now the report is one click, every week, with no prompt to rewrite.</p>
+<h2>Step 6: Schedule it, once you trust it</h2>
+<p>Only after two or three correct manual runs. In Apps Script, use Triggers → time-driven → weekly. Or connect the sheet to Zapier, Make or n8n if you want the output delivered to email or Slack automatically.</p>
+<p>Add one safety rule: the automation should email you if it finds zero rows or an unexpected column name. A silent automation producing wrong numbers is worse than no automation.</p>
+<h2>A before and after</h2>
+<p><strong>Before:</strong> every Monday, 40 minutes. Filter the sheet by date, build a pivot table, copy the top products into an email, eyeball the cancellations, write a paragraph, send.</p>
+<p><strong>After:</strong> Monday morning, open the sheet, click Reports → Generate weekly report, read the draft, adjust one sentence, send. Under five minutes. The 40 minutes became one afternoon of setup — the prompt, the checks, the script — and that setup is reusable for the next report you need.</p>
+<p>That is the whole shape of the skill: describe clearly, build, check, correct, repeat. If you want to practise it on a guided path — from a first request to a working website, task app and spreadsheet automation — the <a href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=automate-spreadsheet-report-with-ai">course on turning ideas into projects with AI</a> walks through the same cycle step by step, with no programming experience assumed.</p>
+<h2>Frequently asked questions</h2>
+<h3>Do I need to know how to code to automate a spreadsheet with AI?</h3>
+<p>No. The AI writes the script; your job is to describe the report precisely and verify the numbers it produces. You will copy and paste code without writing it — but you do need to check the output against the original data, because the AI can produce a script that runs perfectly and still answers the wrong question.</p>
+<h3>Which AI tool is best for turning a spreadsheet into a report?</h3>
+<p>For a first attempt, a general assistant like ChatGPT, Claude or Gemini is enough — you can upload the file and get both the report and a reusable script. If the data must stay inside the file, use Copilot in Excel or Gemini in Google Sheets. For scheduled delivery to email or Slack, add a connector such as Zapier, Make or n8n.</p>
+<h3>Is it safe to upload my company spreadsheet to an AI tool?</h3>
+<p>That depends on your company's rules, not on the tool. Check your internal policy first. A common safe path is to anonymise the data — replace names and client identifiers with codes — or to work with a small sample, get the script, then run the script on the real file locally so the full dataset never leaves your systems.</p>
+<h3>How do I know if the AI got the numbers wrong?</h3>
+<p>Recompute one figure by hand and compare, check the row count the AI says it used, and run the report on an empty or unusual week. Most errors are not arithmetic mistakes — they are filter mistakes, like including test rows or shifting the date window by one day.</p>
+<h3>How long does it take to set up the first one?</h3>
+<p>Plan one focused session for the first report: defining what you want, writing the prompt, checking the results and fixing the filter logic. After that, the same report runs in a click, and your second automation is much faster because you reuse the pattern.</p>
+</article>
+<div class="box"><p><strong>Ganesha</strong></p>
+<a class="cta" href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=automate-spreadsheet-report-with-ai">See the course</a></div>
+<p><a href="https://kallasgabriel.github.io/ganesha-blog/">← All articles</a></p></main>
+<footer>© 2026 Ganesha.</footer>
+</div></body></html>
