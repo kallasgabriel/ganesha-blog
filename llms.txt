@@ -4,6 +4,7 @@
 
 ## Articles
 
+- [How to Publish a Website You Built with AI](https://kallasgabriel.github.io/ganesha-blog/publish-website-built-with-ai/): You built a site with an AI tool. Here is how to get it online: the files you need, where to host it, what breaks after deploy, and what to check first.
 - [Automate a Spreadsheet Report with AI (No Coding)](https://kallasgabriel.github.io/ganesha-blog/automate-spreadsheet-report-with-ai/): Turn a messy spreadsheet into a weekly report with AI, without knowing how to code. A 6-step walkthrough, a copy-paste prompt and how to check the result.
 - [How to Write an AI Prompt That Builds What You Want](https://kallasgabriel.github.io/ganesha-blog/write-ai-prompt-build-what-you-want/): Learn how to turn a vague idea into a clear AI request, with a fill-in-the-blank template, a before-and-after example and a checklist to fix bad results.
 - [What to Build First with AI: 3 Beginner Projects](https://kallasgabriel.github.io/ganesha-blog/first-ai-project-no-coding/): A good first AI project is small, finishable in an afternoon and easy to check. Three projects to build without coding, plus a step-by-step and prompts.

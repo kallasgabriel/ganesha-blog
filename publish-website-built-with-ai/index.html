@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Publish a Website You Built with AI | Ganesha</title><meta name="description" content="You built a site with an AI tool. Here is how to get it online: the files you need, where to host it, what breaks after deploy, and what to check first.">
+<link rel="canonical" href="https://kallasgabriel.github.io/ganesha-blog/publish-website-built-with-ai/">
+<meta property="og:type" content="article"><meta property="og:title" content="How to Publish a Website You Built with AI | Ganesha">
+<meta property="og:description" content="You built a site with an AI tool. Here is how to get it online: the files you need, where to host it, what breaks after deploy, and what to check first."><meta property="og:url" content="https://kallasgabriel.github.io/ganesha-blog/publish-website-built-with-ai/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;650;750&display=swap">
+<link rel="stylesheet" href="https://kallasgabriel.github.io/ganesha-blog/style.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "How to Publish a Website You Built with AI", "description": "You built a site with an AI tool. Here is how to get it online: the files you need, where to host it, what breaks after deploy, and what to check first.", "datePublished": "2026-10-16", "inLanguage": "en", "author": {"@type": "Organization", "name": "Ganesha"}, "mainEntityOfPage": "https://kallasgabriel.github.io/ganesha-blog/publish-website-built-with-ai/", "keywords": "publish website built with ai, deploy ai generated website, how to put ai website online, host website without coding, ai website no coding, share ai app with users"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I publish a website built with AI for free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for a simple static site. Netlify, Vercel, Cloudflare Pages and GitHub Pages all have free tiers that give you a public subdomain. Free tiers change, so check the provider's current pricing page before you commit — and note that projects with a database or a login usually need a second service, which has its own limits."}}, {"@type": "Question", "name": "Do I need GitHub to publish an AI-generated site?", "acceptedAnswer": {"@type": "Answer", "text": "Not for a drag-and-drop deploy of a static folder. You do need it for GitHub Pages, and it becomes very useful once you update the site regularly, because the host can re-publish automatically every time you change the code."}}, {"@type": "Question", "name": "Why does my site work in the AI tool's preview but not after publishing?", "acceptedAnswer": {"@type": "Answer", "text": "The preview runs with environment variables, permissions and sample data already configured. The public version starts with none of that. Ask the tool to list every variable, key and external service the project needs outside the preview, then set each one in your host's settings."}}, {"@type": "Question", "name": "What do I check before sharing the link with real users?", "acceptedAnswer": {"@type": "Answer", "text": "Open the public URL in a private window and on a phone, click every button, submit every form, remove placeholder text, and search the code for any API key or password. Then ask what a visitor could see or change that you assumed was private."}}, {"@type": "Question", "name": "How long does it take to publish a simple AI-built page?", "acceptedAnswer": {"@type": "Answer", "text": "If it is static and already works on your computer, minutes. The time goes into fixing what breaks after deploy — wrong file names, missing images, broken paths — which is why testing locally first saves the most time."}}]}</script>
+</head><body><div class="wrap">
+<header class="site"><a class="brand" href="https://kallasgabriel.github.io/ganesha-blog/">ganesha<span>.</span> blog</a>
+<a class="cta" href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=header">See the course</a></header>
+<main><article>
+<span class="meta">2026-10-16</span><h1>How to Publish a Website You Built with AI</h1><p class="lead">You built a site with an AI tool. Here is how to get it online: the files you need, where to host it, what breaks after deploy, and what to check first.</p>
+<p>To publish a website you built with an AI tool, you need two things: the actual files of the site, and a host that turns those files into a public address. For a simple page, that is a drag-and-drop upload to a static host and you have a link in minutes. For anything with a login, a database or a payment step, publishing is a longer job, because the parts that store data have to live on a server too.</p>
+<p>This guide covers the neutral path: what you have, where it goes, what breaks, and what to check before you send the link to anyone.</p>
+<h2>First, find out what you actually built</h2>
+<p>Most people get stuck here. "A website" can mean three very different things, and each one is published differently. Before you touch a hosting service, ask your AI tool directly.</p>
+<p>Copy this prompt into the chat where you built the project:</p>
+<blockquote>
+<p>Describe the project you just built for me in plain language, as if I have never deployed anything. Answer these five questions, one by one:
+1. Is this a static site (only HTML, CSS and JavaScript files), or does it need a server to run?
+2. Does it store data? If yes, where — in the visitor's browser, or in a database?
+3. Does it use any API key, password or secret? List them by name.
+4. What is the exact list of files and folders I need to publish?
+5. If I only had a drag-and-drop file host, would this project work? Yes or no, and why.</p>
+</blockquote>
+<p>The answer to question 5 is the one that decides your next 20 minutes.</p>
+<h2>The fast path: a static site, online in minutes</h2>
+<p>If the AI says your project is static — HTML, CSS, JavaScript, images, and nothing else — publishing is genuinely easy and free to start.</p>
+<ol>
+<li><strong>Get the files onto your computer.</strong> In a builder like Lovable, Bolt or v0, look for Export, Download or Connect to GitHub. If you built the page in a chat (ChatGPT, Claude), save the code into files yourself: <code>index.html</code> plus any CSS or JS files the AI gave you. The main page must be named <code>index.html</code> — hosts look for that name.</li>
+<li><strong>Open the folder and double-click <code>index.html</code>.</strong> It opens in your browser, from your own machine. If it looks broken here, it will look broken online. Fix it now, not after deploying.</li>
+<li><strong>Drop the folder on a static host.</strong> Netlify has a drag-and-drop deploy page, Cloudflare Pages and GitHub Pages publish from a repository, and Vercel deploys a folder or a repo. Any of them gives you a public URL on a subdomain they own.</li>
+<li><strong>Open the URL on your phone.</strong> Not your laptop. Your phone, on mobile data. This catches the two most common problems at once: broken layout on small screens, and files that only existed on your computer.</li>
+</ol>
+<p>That is it. You now have a link you can send.</p>
+<h2>What changes when the project has a login or a database</h2>
+<p>If the AI answered "no, it needs a server" to question 5, you are not publishing a page — you are running a small application. Three things come with that:</p>
+<ul>
+<li><strong>The data lives somewhere.</strong> Either in the visitor's browser (localStorage — simple, but the data disappears when they clear it and is not shared between devices) or in a hosted database. If it is a database, that database needs its own account, and it has its own free tier and its own limits.</li>
+<li><strong>Your secrets cannot ship in the files.</strong> API keys pasted into front-end code are visible to anyone who opens the page. They belong in the host's environment variables settings, never in the code you upload.</li>
+<li><strong>"It works in the preview" is not "it works online."</strong> Builder previews run with permissions and variables already set up for you. The public version has none of that until you configure it.</li>
+</ul>
+<p>Ask the AI tool for this explicitly: <em>"List every environment variable, API key and external service this project needs to run outside your preview. For each one, tell me where I create it and where I paste it on my host."</em> Then do that list before deploying, not after.</p>
+<h2>Your site is live but broken. Check these first</h2>
+<p>Almost every first deploy breaks in one of five ways. In order of how often it happens:</p>
+<ul>
+<li><strong>Blank white page.</strong> Usually the main file is not named <code>index.html</code>, or you uploaded the folder that contains your project folder instead of the project folder itself.</li>
+<li><strong>Page loads, images missing.</strong> The image paths point at your computer (<code>C:\Users\...</code> or <code>/Users/...</code>) instead of a file inside the project. Images must be in the uploaded folder and referenced by relative path.</li>
+<li><strong>Styles gone, everything is plain text.</strong> The CSS file did not get uploaded, or the filename case does not match. Hosts are case-sensitive; <code>Style.css</code> and <code>style.css</code> are different files online, even though they are the same file on Windows and macOS.</li>
+<li><strong>Buttons do nothing.</strong> Open the browser console (right-click → Inspect → Console), copy the red error text, and paste it back to the AI with: <em>"This is the error from the deployed version of the site you built. What is the exact file and line to change, and what should it say instead?"</em></li>
+<li><strong>It works for you, not for others.</strong> You are logged in or your browser cached an old version. Test in a private window and on a different device.</li>
+</ul>
+<h2>Do you need your own domain?</h2>
+<p>No, not to publish. The free subdomain your host gives you is a real, shareable, working link — fine for a portfolio piece, a demo, a test with five friends.</p>
+<p>Buy a domain when the address is part of the message: a client project, a business page, anything you will print or put in an email signature. Connecting it is a settings screen on both sides, not a code change. Publish on the free subdomain first and confirm the site works; add the domain after.</p>
+<h2>The check before you share the link</h2>
+<p>Run this list every time, in about five minutes:</p>
+<ul>
+<li>Opened the public URL in a private window — not the preview, not localhost</li>
+<li>Opened it on a phone</li>
+<li>Clicked every link and button once</li>
+<li>Submitted every form once, with nonsense data, to see what happens</li>
+<li>Searched the code for any API key, password or email address you did not mean to publish</li>
+<li>Removed placeholder text — no "Lorem ipsum", no "Your Name Here"</li>
+<li>Checked what a visitor can see or change that you assumed only you could</li>
+</ul>
+<p>The last one matters most if real people are going to use it. An app that works is not the same as an app that is safe to hand out.</p>
+<h2>Publishing is a step you can learn, not a wall</h2>
+<p>The pattern behind all of this is the same loop you used to build the thing: ask clearly, build, test the real result, correct, repeat. Deploying just moves the test from your screen to the open internet. If you want that loop taught end to end — turning an idea into a request, building a page, a task app and an automation, then checking and fixing what the AI produced — the course <a href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=publish-website-built-with-ai">From Idea to Your First Project with AI</a> walks through it with exercises you do in your own AI tool, including publishing with the tool access you need.</p>
+<p>A before-and-after to end on. Before: a chat window with code in it and no idea what to do next. After: a folder on your desktop, an <code>index.html</code> inside it, a public URL from a static host, and a phone screenshot proving it loads. Same project, twenty minutes apart.</p>
+<h2>Frequently asked questions</h2>
+<h3>Can I publish a website built with AI for free?</h3>
+<p>Yes, for a simple static site. Netlify, Vercel, Cloudflare Pages and GitHub Pages all have free tiers that give you a public subdomain. Free tiers change, so check the provider's current pricing page before you commit — and note that projects with a database or a login usually need a second service, which has its own limits.</p>
+<h3>Do I need GitHub to publish an AI-generated site?</h3>
+<p>Not for a drag-and-drop deploy of a static folder. You do need it for GitHub Pages, and it becomes very useful once you update the site regularly, because the host can re-publish automatically every time you change the code.</p>
+<h3>Why does my site work in the AI tool's preview but not after publishing?</h3>
+<p>The preview runs with environment variables, permissions and sample data already configured. The public version starts with none of that. Ask the tool to list every variable, key and external service the project needs outside the preview, then set each one in your host's settings.</p>
+<h3>What do I check before sharing the link with real users?</h3>
+<p>Open the public URL in a private window and on a phone, click every button, submit every form, remove placeholder text, and search the code for any API key or password. Then ask what a visitor could see or change that you assumed was private.</p>
+<h3>How long does it take to publish a simple AI-built page?</h3>
+<p>If it is static and already works on your computer, minutes. The time goes into fixing what breaks after deploy — wrong file names, missing images, broken paths — which is why testing locally first saves the most time.</p>
+</article>
+<div class="box"><p><strong>Ganesha</strong></p>
+<a class="cta" href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=publish-website-built-with-ai">See the course</a></div>
+<p><a href="https://kallasgabriel.github.io/ganesha-blog/">← All articles</a></p></main>
+<footer>© 2026 Ganesha.</footer>
+</div></body></html>
