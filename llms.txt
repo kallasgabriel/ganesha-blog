@@ -4,6 +4,7 @@
 
 ## Articles
 
+- [What to Check Before Real Users Open Your AI App](https://kallasgabriel.github.io/ganesha-blog/check-ai-app-before-real-users/): A plain-language, 8-point checklist for non-coders: secrets, access, errors, data and backups to verify before anyone else uses your AI-built app.
 - [How Much Does It Cost to Build an App with AI?](https://kallasgabriel.github.io/ganesha-blog/cost-to-build-an-app-with-ai/): What it really costs to build and host an app with AI when you're not a developer: a $0 setup, a real monthly bill, and the charges that surprise you.
 - [How to Publish a Website You Built with AI](https://kallasgabriel.github.io/ganesha-blog/publish-website-built-with-ai/): You built a site with an AI tool. Here is how to get it online: the files you need, where to host it, what breaks after deploy, and what to check first.
 - [Automate a Spreadsheet Report with AI (No Coding)](https://kallasgabriel.github.io/ganesha-blog/automate-spreadsheet-report-with-ai/): Turn a messy spreadsheet into a weekly report with AI, without knowing how to code. A 6-step walkthrough, a copy-paste prompt and how to check the result.

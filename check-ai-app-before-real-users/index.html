@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What to Check Before Real Users Open Your AI App | Ganesha</title><meta name="description" content="A plain-language, 8-point checklist for non-coders: secrets, access, errors, data and backups to verify before anyone else uses your AI-built app.">
+<link rel="canonical" href="https://kallasgabriel.github.io/ganesha-blog/check-ai-app-before-real-users/">
+<meta property="og:type" content="article"><meta property="og:title" content="What to Check Before Real Users Open Your AI App | Ganesha">
+<meta property="og:description" content="A plain-language, 8-point checklist for non-coders: secrets, access, errors, data and backups to verify before anyone else uses your AI-built app."><meta property="og:url" content="https://kallasgabriel.github.io/ganesha-blog/check-ai-app-before-real-users/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;650;750&display=swap">
+<link rel="stylesheet" href="https://kallasgabriel.github.io/ganesha-blog/style.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "What to Check Before Real Users Open Your AI App", "description": "A plain-language, 8-point checklist for non-coders: secrets, access, errors, data and backups to verify before anyone else uses your AI-built app.", "datePublished": "2026-10-18", "inLanguage": "en", "author": {"@type": "Organization", "name": "Ganesha"}, "mainEntityOfPage": "https://kallasgabriel.github.io/ganesha-blog/check-ai-app-before-real-users/", "keywords": "ai built app checklist, before launching ai app, check ai generated app, ai app security for beginners, vibe coding checklist, share ai app with users"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long does this check take for a small app?", "acceptedAnswer": {"@type": "Answer", "text": "About 60 to 90 minutes for a first project. The secrets and access checks take the longest the first time; after that, most of it becomes a 20-minute routine you repeat before each update."}}, {"@type": "Question", "name": "Do I need to understand the code to do these checks?", "acceptedAnswer": {"@type": "Answer", "text": "No. Every check here is done from the browser or by asking your AI tool direct questions about what it built. You are verifying behaviour and asking for explanations, not reading the code line by line."}}, {"@type": "Question", "name": "Can I just ask the AI if my app is safe?", "acceptedAnswer": {"@type": "Answer", "text": "Asking 'is this safe?' gets you reassurance. Asking specific questions — list every key in this project, list every page a logged-out user can open — gets you findings. Use the six-item prompt in this article and ask for a report before any fixes."}}, {"@type": "Question", "name": "What is the single most common problem in AI-built apps?", "acceptedAnswer": {"@type": "Answer", "text": "Access rules that hide instead of block: the interface stops showing an option, but the underlying data is still reachable by pasting a URL. Test it with two browser windows, one logged in and one not."}}, {"@type": "Question", "name": "What if I find something I cannot fix?", "acceptedAnswer": {"@type": "Answer", "text": "Narrow the app instead of shipping the problem. Turn off the feature that is broken, limit it to a handful of invited people, or keep it as a demo with fake data until the fix is done. A smaller working app beats a bigger leaking one."}}]}</script>
+</head><body><div class="wrap">
+<header class="site"><a class="brand" href="https://kallasgabriel.github.io/ganesha-blog/">ganesha<span>.</span> blog</a>
+<a class="cta" href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=header">See the course</a></header>
+<main><article>
+<span class="meta">2026-10-18</span><h1>What to Check Before Real Users Open Your AI App</h1><p class="lead">A plain-language, 8-point checklist for non-coders: secrets, access, errors, data and backups to verify before anyone else uses your AI-built app.</p>
+<p>Before you let anyone else open an app that AI built for you, run eight checks: remove secrets from the code, confirm that access rules actually block people, test the paths where users do the wrong thing, see what your error messages reveal, know where the data lives, make a backup and restore it, check what you are publishing, and have one person who is not you try it. It takes about 60 to 90 minutes and none of it requires programming. The point is not to make the app perfect — it is to make sure it fails in small, recoverable ways instead of big, public ones.</p>
+<p>Most checklists for this are written for software engineers and assume you can read a scanner report. This one assumes you built the app by talking to an AI tool, and that the AI is still available to help you fix whatever you find.</p>
+<h2>The 8 checks, in order</h2>
+<p>Do them in this order. The first three protect other people; the rest protect you.</p>
+<ol>
+<li><strong>Secrets.</strong> No passwords, API keys or tokens sitting in the project files or visible in the page.</li>
+<li><strong>Access.</strong> Someone who is not logged in — or logged in as a different person — cannot reach data that isn't theirs.</li>
+<li><strong>Input.</strong> The app survives empty fields, very long text, weird characters and a double-click on "submit".</li>
+<li><strong>Errors.</strong> When something breaks, the user sees a plain sentence, not a wall of technical detail.</li>
+<li><strong>Data.</strong> You can say, in one sentence, what the app stores and where it is stored.</li>
+<li><strong>Backup.</strong> You have a copy of the data and you have actually restored it once.</li>
+<li><strong>What's published.</strong> You know which files and folders are public and you have looked at the live version yourself.</li>
+<li><strong>One other human.</strong> A person who has never seen the app uses it in front of you while you stay quiet.</li>
+</ol>
+<h2>How do I find secrets the AI left in my project?</h2>
+<p>AI tools frequently paste a key directly into the code to make something work during the build, then never clean it up. That key can end up in your published files, where anyone can read it.</p>
+<p>What to do, without reading code:</p>
+<ul>
+<li>Ask your AI tool to list them for you. It knows what it wrote.</li>
+<li>Search the project for the words <code>key</code>, <code>token</code>, <code>secret</code>, <code>password</code> and <code>sk-</code>.</li>
+<li>Open the published version in your browser, right-click, choose "View page source" and search the same words.</li>
+<li>If you find one: assume it is burned. Revoke it in the tool that issued it, create a new one, and ask the AI to move it into an environment variable or a server-side setting.</li>
+</ul>
+<p>The rule to remember: anything in the part of the app that runs in the user's browser is public, no matter how buried it looks.</p>
+<h2>How do I know access rules actually work?</h2>
+<p>Hiding a button is not access control. The usual failure in AI-built apps is that the interface stops showing an option while the data underneath stays reachable.</p>
+<p>Test it like this, with two browser windows side by side: one logged in as you, one in a private window logged out or logged in as a second test account. Then try, from the second window, to open the exact URL of something that belongs to the first account. Copy and paste the link. If it opens, your app is hiding things, not protecting them. Tell the AI exactly that: <em>"A logged-out user can open /orders/14 by pasting the URL. Add a server-side check that blocks any request for a record that doesn't belong to the current user, and show me where you added it."</em></p>
+<h2>What breaks when a real person uses it?</h2>
+<p>You test the path you designed. Real users don't. Spend fifteen minutes doing the five things you would never do:</p>
+<ul>
+<li>Submit the form completely empty.</li>
+<li>Paste 2,000 characters into a field meant for a name.</li>
+<li>Click the submit button three times fast.</li>
+<li>Refresh the page in the middle of a task.</li>
+<li>Press the browser's back button after saving something.</li>
+</ul>
+<p>Write down what happens in each case. These five produce more fixable problems in an AI-built app than any scanner will, because they are about behaviour, not code.</p>
+<h2>What about the data and the backup?</h2>
+<p>Answer three questions out loud. What does this app store? Where does it physically live — the user's own browser, a file, a database in some service? What happens if that place disappears tomorrow?</p>
+<p>If the data is stored locally in the browser, say so in the app itself: one line like "Your data is saved in this browser only." That single sentence prevents the most common complaint a first app receives.</p>
+<p>Then test the restore, not the backup. Export the data, delete something real, and bring it back from the export. A backup you have never restored is not a backup — it is a file you hope is correct. If you want to practise this on a project built for it, the <a href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=check-ai-app-before-real-users">course walks you through building a task app with local data and a working backup</a>.</p>
+<h2>A prompt you can paste into your AI tool</h2>
+<p>Run this in the same conversation where the app was built, so the AI has the full context:</p>
+<blockquote>
+<p>Review the app we just built as if a stranger were about to use it with real data. Go through these six items one at a time and answer each separately:
+1. List every API key, token or password that appears anywhere in this project, and say for each whether it is visible to the browser.
+2. List every page or data request a logged-out user could reach by typing the URL directly.
+3. Show me what the user sees when a save fails, and tell me if that message contains technical details.
+4. Tell me exactly where user data is stored and what happens to it if the browser cache is cleared.
+5. Name the three most likely ways this app breaks with ten simultaneous users.
+6. For each problem above, give me the smallest fix, and tell me which ones I should not ship without.
+Do not change any code yet. Just report.</p>
+</blockquote>
+<p>Asking for a report first matters. If you let the AI fix things while it is still listing them, you lose track of what was actually wrong.</p>
+<h2>Before and after: a real example</h2>
+<p><strong>Before.</strong> A task app built in one afternoon. It works. The share link goes to a friend. Her first action is to click "Save" with an empty title field. The screen turns white and shows a red technical error with the name of the database table. She reloads, her earlier test task is gone, and she writes back: "I think I broke it."</p>
+<p><strong>After the checklist.</strong> Empty title shows "Please give the task a name." A failed save shows "Couldn't save — try again" and keeps what she typed. The database key that was sitting in the page source is revoked and replaced. The data is exported to a file, deleted and restored once, successfully. The friend's first message is now about the feature she wants next.</p>
+<p>Same app, same afternoon of work, roughly one hour of checking.</p>
+<h2>What this checklist cannot do</h2>
+<p>It cannot tell you whether the app does what you actually meant. No tool can. If the AI misunderstood your idea, every check above still passes while the product is wrong — which is why the last item is a human who is not you, using it while you stay quiet and take notes.</p>
+<p>It also will not make your app ready for payments, medical data or anything regulated. For those, "a beginner checked it" is not the standard, and the honest move is to get a professional review before real money or sensitive records are involved.</p>
+<h2>Frequently asked questions</h2>
+<p>Run the eight checks, fix what blocks, and ship to five people before you ship to five hundred.</p>
+</article>
+<div class="box"><p><strong>Ganesha</strong></p>
+<a class="cta" href="https://ganesha-devops.vercel.app/courses/course-fef607a922d4e2c33f19c94f?utm_source=blog&amp;utm_medium=organic&amp;utm_campaign=check-ai-app-before-real-users">See the course</a></div>
+<p><a href="https://kallasgabriel.github.io/ganesha-blog/">← All articles</a></p></main>
+<footer>© 2026 Ganesha.</footer>
+</div></body></html>
