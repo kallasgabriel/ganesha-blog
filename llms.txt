@@ -4,6 +4,7 @@
 
 ## Articles
 
+- [Set Up Your Computer to Start Building with AI](https://kallasgabriel.github.io/ganesha-blog/set-up-computer-to-build-with-ai/): A 30-minute setup for non-technical beginners: the four things you need to start building with AI, what you can safely skip, and how to test it works.
 - [How Long It Takes to Build Your First App with AI](https://kallasgabriel.github.io/ganesha-blog/how-long-to-build-first-app-with-ai/): A realistic timeline for beginners: hours to a first working version, days to something real people can use, and what actually eats your time.
 - [What to Check Before Real Users Open Your AI App](https://kallasgabriel.github.io/ganesha-blog/check-ai-app-before-real-users/): A plain-language, 8-point checklist for non-coders: secrets, access, errors, data and backups to verify before anyone else uses your AI-built app.
 - [How Much Does It Cost to Build an App with AI?](https://kallasgabriel.github.io/ganesha-blog/cost-to-build-an-app-with-ai/): What it really costs to build and host an app with AI when you're not a developer: a $0 setup, a real monthly bill, and the charges that surprise you.
